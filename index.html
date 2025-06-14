@@ -127,7 +127,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
             animation: gradientShift 3s ease-in-out infinite, pulse 2s infinite;
-            margin-bottom: 30px;
+            margin-bottom: 12px;
             font-family: 'Orbitron', monospace;
             white-space: nowrap;
             min-width: 200px;
@@ -303,7 +303,7 @@
                 margin-bottom: 25px;
             }
             .join-button {
-                margin-bottom: 25px;
+                margin-bottom: 10px;
                 padding: 14px 35px;
                 min-width: 180px;
             }
@@ -336,6 +336,7 @@
                 font-size: 14px;
             }
             .join-button {
+                margin-bottom: 8px;
                 min-width: 160px;
                 padding: 12px 30px;
             }
@@ -348,7 +349,7 @@
             padding: 14px 0;
             position: absolute;
             left: 0;
-            bottom: 20px;
+            bottom: 80px;
             z-index: 50;
         }
         .sponsor-track {
@@ -392,6 +393,21 @@
         <button class="join-button" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdHls5SoJvvQqZtle6zI2mDOg3UBt50yNtUwiEhBfhztsEZYg/viewform?usp=sharing&ouid=109428463122174416253', '_blank')">
             🚀 JOIN NOW
         </button>
+        <div class="sponsor-slider">
+          <div class="sponsor-track">
+            <img src="logo1.png" alt="스폰서1" class="sponsor-logo">
+            <img src="logo2.png" alt="스폰서2" class="sponsor-logo">
+            <img src="logo3.png" alt="스폰서3" class="sponsor-logo">
+            <img src="logo4.png" alt="스폰서4" class="sponsor-logo">
+            <img src="logo5.png" alt="스폰서5" class="sponsor-logo">
+            <img src="logo1.png" alt="스폰서1" class="sponsor-logo">
+            <img src="logo2.png" alt="스폰서2" class="sponsor-logo">
+            <img src="logo3.png" alt="스폰서3" class="sponsor-logo">
+            <img src="logo4.png" alt="스폰서4" class="sponsor-logo">
+            <img src="logo5.png" alt="스폰서5" class="sponsor-logo">
+          </div>
+        </div>
+        
         <div>
             <div class="visitor-count">
             <a href="https://hits.sh/jkf87.github.io/invitation-vibecoding/">
@@ -421,14 +437,11 @@
         <div class="tech-symbol">✨</div>
     </div>
     
-    <div class="sponsor-slider">
-      <div class="sponsor-track">
-        <img src="logo1.png" alt="스폰서1" class="sponsor-logo">
-        <img src="logo2.png" alt="스폰서2" class="sponsor-logo">
-        <img src="logo1.png" alt="스폰서1" class="sponsor-logo">
-        <img src="logo2.png" alt="스폰서2" class="sponsor-logo">
-      </div>
-    </div>
+    <script type="module">
+      import { initToolbar } from 'https://cdn.skypack.dev/@stagewise/toolbar';
+      const stagewiseConfig = { plugins: [] };
+      initToolbar(stagewiseConfig);
+    </script>
     
     <script>
         // 추가 인터랙션을 위한 간단한 JavaScript
