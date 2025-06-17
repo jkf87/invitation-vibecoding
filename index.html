@@ -112,12 +112,21 @@
             word-break: keep-all;
         }
         
+        .button-container {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+        
         .join-button {
             background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
             background-size: 300% 300%;
             border: none;
             padding: 16px 40px;
-            font-size: clamp(1.1rem, 3.5vw, 1.8rem);
+            font-size: clamp(0.9rem, 2.8vw, 1.4rem);
             font-weight: 700;
             color: white;
             border-radius: 50px;
@@ -127,10 +136,48 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
             animation: gradientShift 3s ease-in-out infinite, pulse 2s infinite;
-            margin-bottom: 12px;
             font-family: 'Orbitron', monospace;
             white-space: nowrap;
-            min-width: 200px;
+            min-width: 160px;
+            flex: 2;
+        }
+        
+        .submit-button {
+            background: linear-gradient(45deg, #dc2626, #ef4444, #f87171, #fca5a5);
+            background-size: 300% 300%;
+            border: none;
+            padding: 16px 40px;
+            font-size: clamp(0.9rem, 2.8vw, 1.4rem);
+            font-weight: 700;
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.3);
+            transition: all 0.3s ease;
+            animation: submitGradientShift 3s ease-in-out infinite, submitPulse 2s infinite;
+            font-family: 'Orbitron', monospace;
+            white-space: nowrap;
+            min-width: 160px;
+            flex: 1;
+        }
+        
+        @keyframes submitGradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes submitPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .submit-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(220, 38, 38, 0.4);
         }
         
         @keyframes gradientShift {
@@ -302,10 +349,19 @@
             .subtitle {
                 margin-bottom: 25px;
             }
-            .join-button {
+            .button-container {
+                gap: 10px;
                 margin-bottom: 10px;
+            }
+            .join-button {
                 padding: 14px 35px;
-                min-width: 180px;
+                min-width: 140px;
+                font-size: clamp(0.8rem, 2.5vw, 1.2rem);
+            }
+            .submit-button {
+                padding: 14px 35px;
+                min-width: 140px;
+                font-size: clamp(0.8rem, 2.5vw, 1.2rem);
             }
         }
         
@@ -335,10 +391,19 @@
                 height: 28px;
                 font-size: 14px;
             }
-            .join-button {
+            .button-container {
+                gap: 8px;
                 margin-bottom: 8px;
-                min-width: 160px;
+            }
+            .join-button {
+                min-width: 120px;
                 padding: 12px 30px;
+                font-size: clamp(0.7rem, 2.2vw, 1rem);
+            }
+            .submit-button {
+                min-width: 120px;
+                padding: 12px 30px;
+                font-size: clamp(0.7rem, 2.2vw, 1rem);
             }
         }
         
@@ -365,6 +430,10 @@
             filter: drop-shadow(0 2px 8px rgba(0,0,0,0.15));
             background: transparent;
         }
+        
+        .sponsor-logo.logo6 {
+            height: 50px;
+        }
         @keyframes sponsor-slide {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
@@ -390,9 +459,14 @@
         
         <p class="subtitle">AI와 함께하는 새로운 코딩 경험</p>
         
-        <button class="join-button" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdHls5SoJvvQqZtle6zI2mDOg3UBt50yNtUwiEhBfhztsEZYg/viewform?usp=sharing&ouid=109428463122174416253', '_blank')">
-            🚀 JOIN NOW
-        </button>
+        <div class="button-container">
+            <button class="join-button" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdHls5SoJvvQqZtle6zI2mDOg3UBt50yNtUwiEhBfhztsEZYg/viewform?usp=sharing&ouid=109428463122174416253', '_blank')">
+                🚀 JOIN NOW
+            </button>
+            <button class="submit-button" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdi_KczkKtTTBIYdT0p3myoKfuUGT6LxdsoUTKcqA6NGt4lQQ/viewform?usp=sharing&ouid=109428463122174416253', '_blank')" title="작품 제출하기">
+                📝 SUBMIT
+            </button>
+        </div>
         <div class="sponsor-slider">
           <div class="sponsor-track">
             <img src="logo1.png" alt="스폰서1" class="sponsor-logo">
@@ -400,31 +474,36 @@
             <img src="logo3.png" alt="스폰서3" class="sponsor-logo">
             <img src="logo4.png" alt="스폰서4" class="sponsor-logo">
             <img src="logo5.png" alt="스폰서5" class="sponsor-logo">
-            <img src="logo6.png" alt="스폰서6" class="sponsor-logo">
+            <img src="logo6.png" alt="스폰서6" class="sponsor-logo logo6">
+            <img src="logo7.png" alt="스폰서7" class="sponsor-logo">
             <img src="logo1.png" alt="스폰서1" class="sponsor-logo">
             <img src="logo2.png" alt="스폰서2" class="sponsor-logo">
             <img src="logo3.png" alt="스폰서3" class="sponsor-logo">
             <img src="logo4.png" alt="스폰서4" class="sponsor-logo">
             <img src="logo5.png" alt="스폰서5" class="sponsor-logo">
-            <img src="logo6.png" alt="스폰서6" class="sponsor-logo">
+            <img src="logo6.png" alt="스폰서6" class="sponsor-logo logo6">
+            <img src="logo7.png" alt="스폰서7" class="sponsor-logo">
             <img src="logo1.png" alt="스폰서1" class="sponsor-logo">
             <img src="logo2.png" alt="스폰서2" class="sponsor-logo">
             <img src="logo3.png" alt="스폰서3" class="sponsor-logo">
             <img src="logo4.png" alt="스폰서4" class="sponsor-logo">
             <img src="logo5.png" alt="스폰서5" class="sponsor-logo">
-            <img src="logo6.png" alt="스폰서6" class="sponsor-logo">
+            <img src="logo6.png" alt="스폰서6" class="sponsor-logo logo6">
+            <img src="logo7.png" alt="스폰서7" class="sponsor-logo">
             <img src="logo1.png" alt="스폰서1" class="sponsor-logo">
             <img src="logo2.png" alt="스폰서2" class="sponsor-logo">
             <img src="logo3.png" alt="스폰서3" class="sponsor-logo">
             <img src="logo4.png" alt="스폰서4" class="sponsor-logo">
             <img src="logo5.png" alt="스폰서5" class="sponsor-logo">
-            <img src="logo6.png" alt="스폰서6" class="sponsor-logo">
+            <img src="logo6.png" alt="스폰서6" class="sponsor-logo logo6">
+            <img src="logo7.png" alt="스폰서7" class="sponsor-logo">
             <img src="logo1.png" alt="스폰서1" class="sponsor-logo">
             <img src="logo2.png" alt="스폰서2" class="sponsor-logo">
             <img src="logo3.png" alt="스폰서3" class="sponsor-logo">
             <img src="logo4.png" alt="스폰서4" class="sponsor-logo">
             <img src="logo5.png" alt="스폰서5" class="sponsor-logo">
-            <img src="logo6.png" alt="스폰서6" class="sponsor-logo">
+            <img src="logo6.png" alt="스폰서6" class="sponsor-logo logo6">
+            <img src="logo7.png" alt="스폰서7" class="sponsor-logo">
           </div>
         </div>
         
